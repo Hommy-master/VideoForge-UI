@@ -1,0 +1,11 @@
+{
+  // 开启保存时自动格式化
+  "editor.formatOnSave": true,
+  // 指定全局默认格式化工具，这里以Prettier为例
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 如果你使用ESLint，可以同时开启保存时自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "i18n-ally.localesPaths": ["i18n", "messages"]
+}

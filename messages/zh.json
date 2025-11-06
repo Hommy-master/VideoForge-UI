@@ -1,0 +1,19 @@
+{
+  "common": {
+    "login": "登录",
+    "logout": "退出登录",
+    "register": "注册",
+    "language": "语言",
+    "selectLanguage": "中文"
+  },
+  "nav": {
+    "home": "首页",
+    "product": "我的作品"
+  },
+  "home": {
+    "title": "欢迎回家"
+  },
+  "product": {
+    "title": "我的作品"
+  }
+}

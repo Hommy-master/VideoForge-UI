@@ -1,0 +1,1 @@
+export const linkClassName = 'text-gray-400 bg-transparent hover:text-gray-600 p-0 flex items-center gap-0';

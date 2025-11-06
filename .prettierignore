@@ -1,0 +1,11 @@
+node_modules
+dist
+public
+.husky
+.next
+.eslintignore
+.editorconfig
+.gitignore
+.prettierignore
+*.lock
+*.md

@@ -1,0 +1,19 @@
+/*
+  这个文件要放在自定义主题文件前面
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.right-slide-gradient {
+  background: linear-gradient(270deg, #ffffff 0%, #ffffff 38.7%, rgba(255, 255, 255, 0) 91.25%);
+}
+.left-slide-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 38.7%, rgba(255, 255, 255, 0) 91.25%);
+}

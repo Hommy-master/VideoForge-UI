@@ -1,0 +1,10 @@
+/*
+    globals.css要放前面，next主题会被自动注入到这个文件中
+ */
+@import './globals.css';
+
+/*
+    自定义主题样式
+ */
+@import './themes.css';
+

@@ -1,0 +1,152 @@
+/* 1. 默认浅色蓝 */
+:root {
+  --font-size-base: 16px;
+  --spacing-unit: 1rem;
+}
+
+.orange,
+[data-theme='orange'] {
+  --lightningcss-light: initial;
+  --lightningcss-dark: ;
+  color-scheme: orange;
+
+  /* ---- 基础背景/前景 ---- */
+  --nextui-background: 0 0% 100%;
+  --nextui-foreground-50: 0 0% 98.04%;
+  --nextui-foreground-100: 30 4.76% 95.88%;
+  --nextui-foreground-200: 30 5.88% 90%;
+  --nextui-foreground-300: 30 4.88% 83.92%;
+  --nextui-foreground-400: 30 5.03% 64.9%;
+  --nextui-foreground-500: 30 3.83% 46.08%;
+  --nextui-foreground-600: 30 5.2% 33.92%;
+  --nextui-foreground-700: 30 5.26% 26.08%;
+  --nextui-foreground-800: 30 3.7% 15.88%;
+  --nextui-foreground-900: 30 5.88% 10%;
+  --nextui-foreground: 25 24.44% 8.82%;
+  --nextui-divider: 0 0% 6.67%;
+  --nextui-divider-opacity: .15;
+  --nextui-focus: 25 100% 50%;
+  --nextui-overlay: 0 0% 0%;
+
+  /* ---- 内容层级 ---- */
+  --nextui-content1: 0 0% 100%;
+  --nextui-content1-foreground: 25 24.44% 8.82%;
+  --nextui-content2: 30 4.76% 95.88%;
+  --nextui-content2-foreground: 30 3.7% 15.88%;
+  --nextui-content3: 30 5.88% 90%;
+  --nextui-content3-foreground: 30 5.26% 26.08%;
+  --nextui-content4: 30 4.88% 83.92%;
+  --nextui-content4-foreground: 30 5.2% 33.92%;
+
+  /* ---- 默认中性色 ---- */
+  --nextui-default-50: 0 0% 98.04%;
+  --nextui-default-100: 30 4.76% 95.88%;
+  --nextui-default-200: 30 5.88% 90%;
+  --nextui-default-300: 30 4.88% 83.92%;
+  --nextui-default-400: 30 5.03% 64.9%;
+  --nextui-default-500: 30 3.83% 46.08%;
+  --nextui-default-600: 30 5.2% 33.92%;
+  --nextui-default-700: 30 5.26% 26.08%;
+  --nextui-default-800: 30 3.7% 15.88%;
+  --nextui-default-900: 30 5.88% 10%;
+  --nextui-default-foreground: 0 0% 0%;
+  --nextui-default: 30 4.88% 83.92%;
+
+  /* ---- 橙色主色梯度 ---- */
+  --nextui-primary-50: 25 92.31% 94.9%;
+  --nextui-primary-100: 25 92.45% 89.61%;
+  --nextui-primary-200: 25 92.45% 79.22%;
+  --nextui-primary-300: 25 92.45% 68.82%;
+  --nextui-primary-400: 25 92.45% 58.43%;
+  --nextui-primary-500: 25 100% 50%;
+  --nextui-primary-600: 25 100% 42%;
+  --nextui-primary-700: 25 100% 34%;
+  --nextui-primary-800: 25 100% 26%;
+  --nextui-primary-900: 25 100% 18%;
+  --nextui-primary-foreground: 0 0% 100%;
+
+  --nextui-primary: 25 100% 50%;
+  /* 品牌橙 */
+  --nextui-secondary-50: 25 92% 94.9%;
+  --nextui-secondary-100: 25 92% 89.6%;
+  --nextui-secondary-200: 25 92% 79.2%;
+  --nextui-secondary-300: 25 92% 68.8%;
+  --nextui-secondary-400: 25 92% 58.4%;
+  --nextui-secondary-500: 25 100% 47%;
+  --nextui-secondary-600: 25 100% 38%;
+  --nextui-secondary-700: 25 100% 28%;
+  --nextui-secondary-800: 25 100% 19%;
+  --nextui-secondary-900: 25 100% 9%;
+  --nextui-secondary-foreground: 0 0% 100%;
+  --nextui-secondary: 25 100% 47%;
+
+  --nextui-success-50: 145 64% 94.5%;
+  --nextui-success-100: 145 61% 88.8%;
+  --nextui-success-200: 145 62% 77.5%;
+  --nextui-success-300: 145 63% 66.5%;
+  --nextui-success-400: 145 62% 55%;
+  --nextui-success-500: 145 80% 44%;
+  --nextui-success-600: 145 80% 35%;
+  --nextui-success-700: 145 79% 26.5%;
+  --nextui-success-800: 145 80% 17.5%;
+  --nextui-success-900: 145 78% 8.8%;
+  --nextui-success-foreground: 0 0% 0%;
+  --nextui-success: 145 80% 44%;
+
+  --nextui-warning-50: 37 92% 95%;
+  --nextui-warning-100: 37 91% 91%;
+  --nextui-warning-200: 37 91% 82%;
+  --nextui-warning-300: 37 91% 73%;
+  --nextui-warning-400: 37 91% 64%;
+  --nextui-warning-500: 37 91% 55%;
+  --nextui-warning-600: 37 74% 44%;
+  --nextui-warning-700: 37 74% 33%;
+  --nextui-warning-800: 37 75% 22%;
+  --nextui-warning-900: 37 75% 11%;
+  --nextui-warning-foreground: 0 0% 0%;
+  --nextui-warning: 37 91% 55%;
+
+  --nextui-danger-50: 0 92% 95%;
+  --nextui-danger-100: 0 92% 90%;
+  --nextui-danger-200: 0 90% 80%;
+  --nextui-danger-300: 0 91% 71%;
+  --nextui-danger-400: 0 90% 61%;
+  --nextui-danger-500: 0 90% 51%;
+  --nextui-danger-600: 0 87% 41%;
+  --nextui-danger-700: 0 86% 31%;
+  --nextui-danger-800: 0 87% 20%;
+  --nextui-danger-900: 0 85% 10%;
+  --nextui-danger-foreground: 0 0% 100%;
+  --nextui-danger: 0 90% 51%;
+
+  /* ===== 以下与官方浅色默认相同，无需改动 ===== */
+  --nextui-divider-weight: 1px;
+  --nextui-disabled-opacity: .5;
+  --nextui-font-size-tiny: .75rem;
+  --nextui-font-size-small: .875rem;
+  --nextui-font-size-medium: 1rem;
+  --nextui-font-size-large: 1.125rem;
+  --nextui-line-height-tiny: 1rem;
+  --nextui-line-height-small: 1.25rem;
+  --nextui-line-height-medium: 1.5rem;
+  --nextui-line-height-large: 1.75rem;
+  --nextui-radius-small: 8px;
+  --nextui-radius-medium: 12px;
+  --nextui-radius-large: 14px;
+  --nextui-border-width-small: 1px;
+  --nextui-border-width-medium: 2px;
+  --nextui-border-width-large: 3px;
+  --nextui-box-shadow-small: 0 0 5px 0 rgba(0, 0, 0, .02), 0 2px 10px 0 rgba(0, 0, 0, .06), 0 0 1px 0 rgba(0, 0, 0, .3);
+  --nextui-box-shadow-medium: 0 0 15px 0 rgba(0, 0, 0, .03), 0 2px 30px 0 rgba(0, 0, 0, .08), 0 0 1px 0 rgba(0, 0, 0, .3);
+  --nextui-box-shadow-large: 0 0 30px 0 rgba(0, 0, 0, .04), 0 30px 60px 0 rgba(0, 0, 0, .12), 0 0 1px 0 rgba(0, 0, 0, .3);
+  --nextui-hover-opacity: .8;
+}
+
+
+/* 5. 响应式变量 */
+@media (max-width: 767px) {
+  :root {
+    --font-size-base: 14px;
+    --spacing-unit: 0.5rem;
+  }
+}

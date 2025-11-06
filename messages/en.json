@@ -1,0 +1,25 @@
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "language": "Language",
+    "selectLanguage": "EN"
+  },
+  "nav": {
+    "home": "Home",    
+    "product": "My Product"
+  },
+  "home": {
+    "title": "Welcome Home",
+    "detail": {
+      "title": "Welcome to our website"
+    }
+  },
+  "product": {
+    "title": "My Product",
+    "detail": {
+      "title": "Product Detail"
+    }
+  }
+}

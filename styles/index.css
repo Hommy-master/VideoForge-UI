@@ -8,3 +8,6 @@
  */
 @import './themes.css';
 
+@import './gradient.css';
+
+@import './base.css';

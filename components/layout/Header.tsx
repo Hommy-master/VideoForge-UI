@@ -7,17 +7,12 @@ import LoginButton from '@/components/features/LoginButton';
 
 export default function TopNav() {
   return (
-    <Navbar className="sticky" role="navigation" aria-label="顶部操作栏">
+    <Navbar className="sticky jc-top-nav" role="navigation" aria-label="顶部操作栏">
       <NavbarContent justify="end" className="gap-4">
-        {/* <NavbarItem>
-          <ThemeSwitcher />
-        </NavbarItem> */}
-        {/* <NavbarItem>
-          <CompactLanguageSwitcher />
-        </NavbarItem> */}
         <NavbarItem>
-          <Button className="bg-gradient-to-br from-[#111113] to-[#3f3f47] text-[#ffe1c1] hover:opacity-90">
-            <Crown />会员
+          <Button className="black-gradient text-[#ffba38]">
+            <Crown color="#ffba38" fill="#ffba38" />
+            会员
           </Button>
         </NavbarItem>
         <NavbarItem>

@@ -5,5 +5,5 @@ import { useTranslations } from 'next-intl';
 
 export default function LoginButton() {
   const t = useTranslations('common');
-  return <Button color="warning">{t('login')}</Button>;
+  return <Button color="primary">{t('login')}</Button>;
 }

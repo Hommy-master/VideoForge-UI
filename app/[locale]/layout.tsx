@@ -22,9 +22,8 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className="light" suppressHydrationWarning>
+    <html lang={locale} className="light">
       <head>
-        {/* 基础SEO元信息 - 实际项目中应根据具体页面内容动态生成 */}
         <meta name="description" content="Demo应用 - 您的应用描述" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href={`https://example.com/${locale}`} />

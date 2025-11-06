@@ -1,0 +1,15 @@
+.right-slide-gradient {
+    background: linear-gradient(270deg, #ffffff 0%, #ffffff 38.7%, rgba(255, 255, 255, 0) 91.25%);
+}
+
+.left-slide-gradient {
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 38.7%, rgba(255, 255, 255, 0) 91.25%);
+}
+
+.black-gradient {
+    background: linear-gradient(277.18deg, #111113 .87%, #3f3f47 117.99%), #191919;
+}
+
+.orange-gradient {
+    background: linear-gradient(277.18deg, #FF6A00 0.87%, #AA4C00 117.99%), #FF6A00;
+}

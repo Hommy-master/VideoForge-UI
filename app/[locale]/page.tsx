@@ -302,7 +302,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               onClick={scrollLeft}
               className="left-slide-gradient absolute left-0 top-0 h-full w-20 z-10 flex items-center justify-start px-4"
             >
-              <img className="ml-[-20px] w-[20px]" src='/icons/arrow-left-big.png'/>
+              <img className="ml-[-20px] w-[20px]" src="/icons/arrow-left-big.png" />
             </div>
           )}
 
@@ -312,7 +312,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               onClick={scrollRight}
               className="right-slide-gradient absolute right-0 top-0 h-full w-20 z-10 flex items-center justify-end px-4 "
             >
-              <img className="mr-[-20px] w-[20px]" src='/icons/arrow-right-big.png'/>
+              <img className="mr-[-20px] w-[20px]" src="/icons/arrow-right-big.png" />
             </div>
           )}
 

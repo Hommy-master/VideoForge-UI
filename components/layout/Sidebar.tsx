@@ -5,6 +5,7 @@ import { navItems } from '@/lib/consts/nav';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, Settings, FileText, Users, Bell, HelpCircle, Menu } from 'lucide-react'; // 导入图标组件
+import Image from 'next/image';
 
 export default function Sidebar() {
   const t = useTranslations('nav');
@@ -28,8 +29,8 @@ export default function Sidebar() {
       <CardBody className="p-0 h-full flex flex-col">
         {/* 品牌标识 */}
         <div className="py-4 px-3">
-          <Link href="/" className="font-bold text-amber-600 hover:text-amber-400 flex item-center text-xl">
-            <img src="/logo.png" alt="Logo" className="w-8 h-8 mr-2" />
+          <Link href="/" className="font-bold text-amber-600 hover:text-amber-400 flex item-center text-xl gap-2">
+            <Image alt="简创AI" width={28} height={28} src="/logo.png" />
             简创AI
           </Link>
         </div>

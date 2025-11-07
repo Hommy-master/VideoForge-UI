@@ -1,25 +1,28 @@
 {
-  "common": {
-    "login": "Login",
-    "logout": "Logout",
-    "register": "Register",
-    "language": "Language",
-    "selectLanguage": "EN"
-  },
   "nav": {
-    "home": "Home",    
-    "product": "My Product"
+    "home": "Home",
+    "image-generator": "Image Generator",
+    "video-generator": "Video Generator",
+    "product": "Products",
+    "users": "Users",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "help": "Help",
+    "productList": "Product List",
+    "productCreate": "Create Product",
+    "userManagement": "User Management",
+    "userProfile": "User Profile"
   },
-  "home": {
-    "title": "Welcome Home",
-    "detail": {
-      "title": "Welcome to our website"
-    }
+  "common": {
+    "login": "Login"
+  },
+  "image-generator": {
+    "title": "图片生成"
+  },
+  "video-generator": {
+    "title": "视频生成"
   },
   "product": {
-    "title": "My Product",
-    "detail": {
-      "title": "Product Detail"
-    }
+    "title": "我的作品"
   }
 }

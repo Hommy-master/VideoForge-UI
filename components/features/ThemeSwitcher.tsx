@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 const iconProps = {
-  size: 16,
+  size: 24,
 };
 
 export function ThemeSwitcher() {

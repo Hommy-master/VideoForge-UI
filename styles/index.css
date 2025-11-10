@@ -8,6 +8,8 @@
  */
 @import './themes.css';
 
+@import './scrollbar.css';
+
 @import './gradient.css';
 
 @import './base.css';

@@ -33,12 +33,10 @@ export default async function LocaleLayout({
               {/* 右侧内容区 */}
               <div className="h-screen flex-1 flex flex-col overflow-y-auto">
                 <Header />
-                
-                <main className="flex-1 py-[24px] px-[64px] focus:outline-none min-w-[800px]" tabIndex={-1}>
+
+                <main className="h-[calc(100vh-64px)] flex-1 focus:outline-none min-w-[800px]" tabIndex={-1}>
                   {children}
                 </main>
-                
-                <Footer />
               </div>
             </div>
           </NextUIProviderWrapper>

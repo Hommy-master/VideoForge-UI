@@ -3,3 +3,13 @@
     max-width: none;
     padding: 0 64px;
 }
+
+.jc-input_imageInput {
+    margin: 0 auto;
+    padding: 0 8px 8px;
+    border-radius: 16px;
+    background: var(--color-editor-background-input);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: .5px solid var(--color-editor-border);
+}

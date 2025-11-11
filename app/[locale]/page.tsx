@@ -131,13 +131,13 @@ const toolsData = [
 ];
 
 const section4Data = [
-  { id: 1, image: '/showcase/1.png', isMemberOnly: true, link: '/product' },
-  { id: 2, image: '/showcase/2.png', isMemberOnly: false, link: '/product' },
-  { id: 3, image: '/showcase/3.png', isMemberOnly: true, link: '/product' },
-  { id: 4, image: '/showcase/4.png', isMemberOnly: false, link: '/product' },
-  { id: 5, image: '/showcase/1.png', isMemberOnly: true, link: '/product' },
-  { id: 6, image: '/showcase/2.png', isMemberOnly: false, link: '/product' },
-  { id: 7, image: '/showcase/3.png', isMemberOnly: true, link: '/product' },
+  { id: 1, image: '/showcase/1.png', isMemberOnly: true, link: '/video-generator' },
+  { id: 2, image: '/showcase/2.png', isMemberOnly: false, link: '/video-generator' },
+  { id: 3, image: '/showcase/3.png', isMemberOnly: true, link: '/video-generator' },
+  { id: 4, image: '/showcase/4.png', isMemberOnly: false, link: '/video-generator' },
+  { id: 5, image: '/showcase/1.png', isMemberOnly: true, link: '/video-generator' },
+  { id: 6, image: '/showcase/2.png', isMemberOnly: false, link: '/video-generator' },
+  { id: 7, image: '/showcase/3.png', isMemberOnly: true, link: '/video-generator' },
 ];
 
 // 移除async关键字，因为Client Components不能是异步的
@@ -296,7 +296,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         <section>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">热门作品</h2>
-            <Link href="/product" className={linkClassName} aria-label="查看全部作品">
+            <Link href="/video-generator" className={linkClassName} aria-label="查看全部作品">
               全部作品 <ChevronRight className="ml-1 h-4 w-4" />
             </Link>
           </div>

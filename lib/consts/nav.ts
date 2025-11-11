@@ -21,19 +21,19 @@ export const navItems: NavItem[] = [
     icon: Home,
     href: '/',
   },
-  {
-    key: NavKeys.Image,
-    icon: Image,
-    href: `/image-generator`,
-  },
+  // {
+  //   key: NavKeys.Image,
+  //   icon: Image,
+  //   href: `/image-generator`,
+  // },
   {
     key: NavKeys.Video,
     icon: Video,
     href: `/video-generator`,
   },
-  {
-    key: NavKeys.Product,
-    icon: FileText,
-    href: `/${NavKeys.Product}`,
-  },
+  // {
+  //   key: NavKeys.Product,
+  //   icon: FileText,
+  //   href: `/${NavKeys.Product}`,
+  // },
 ];

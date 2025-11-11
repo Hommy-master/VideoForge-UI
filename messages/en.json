@@ -14,7 +14,8 @@
     "userProfile": "User Profile"
   },
   "common": {
-    "login": "Login"
+    "login": "Login",
+    "selectLanguage": "Select Language"
   },
   "image-generator": {
     "title": "图片生成"

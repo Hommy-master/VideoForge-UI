@@ -1,18 +1,16 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, Textarea, Card, CardBody } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
+import Image from 'next/image';
 
 import {
   PlayCircle,
-  PlusCircle,
   Image as ImageIcon,
   Film,
   Sparkles,
   ChevronUp,
   ChevronDown,
-  ArrowLeft,
-  ArrowRight,
   ChevronRight,
   ChevronLeft,
   CirclePlus,
@@ -108,7 +106,7 @@ const VideoGeneratorPage: React.FC<{ params: { locale: string } }> = ({ params }
       <div className="flex-1 flex flex-col justify-center items-center px-4">
         <h1 className="text-center pb-[28px] text-[36px] text-[#191919] dark:text-[#fff] font-[500]">{'视频生成'}</h1>
         <div className="flex flex-col transition-opacity duration-300 ease-in-out w-full max-w-[760px] mx-auto">
-          <div className="jc-input_imageInput w-full">
+          <div className="input_imageInput w-full">
             <div className="flex items-start gap-2 px-2">
               {/* 左侧区域 */}
               <div className="flex-1 space-y-4 relative">
@@ -135,7 +133,7 @@ const VideoGeneratorPage: React.FC<{ params: { locale: string } }> = ({ params }
                   <textarea
                     placeholder="试试描述一段简短的故事情节，最关键的是主体、环境、时间、风格"
                     maxLength={2000}
-                    className="min-h-[40px] b768:max-h-[140px] max-h-[100px] overflow-auto overscroll-none flex-1 w-full text-[var(--color-text-ant-tag)] text-[14px] rounded-none resize-none leading-5 focus:outline-none focus:border-transparent bg-transparent input_inputStyle__jxWuX"
+                    className="min-h-[40px] md:max-h-[140px] max-h-[100px] overflow-auto overscroll-none flex-1 w-full text-[var(--color-text-ant-tag)] text-[14px] rounded-none resize-none leading-5 focus:outline-none focus:border-transparent bg-transparent input_inputStyle"
                   />
                 </div>
               </div>
@@ -241,10 +239,12 @@ const VideoGeneratorPage: React.FC<{ params: { locale: string } }> = ({ params }
                     onClick={() => setPrompt(inspiration.title)}
                   >
                     <div className="flex-grow bg-muted rounded-lg overflow-hidden relative">
-                      <img
+                      <Image
                         src={inspiration.thumbnail}
                         alt={inspiration.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-2">
                         <PlayCircle className="text-white/90 h-8 w-8" />

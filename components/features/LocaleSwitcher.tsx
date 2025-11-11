@@ -1,6 +1,7 @@
+// 第1行：添加 useCallback 导入
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Select, SelectItem, SelectSection, Avatar, cn, SharedSelection } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
@@ -17,19 +18,21 @@ export function LanguageSwitcher({ variant = 'default', className }: LanguageSwi
   const pathname = usePathname();
   const t = useTranslations('common');
 
+  // 第21行附近：使用 useCallback 包装 getCurrentLocale 函数
   // 从 URL 路径中提取当前语言
-  const getCurrentLocale = () => {
+  const getCurrentLocale = useCallback(() => {
     const segments = pathname.split('/').filter(Boolean);
     return segments[0] || routing.defaultLocale;
-  };
+  }, [pathname]); // 添加 pathname 作为依赖项
 
   const [selectedLanguage, setSelectedLanguage] = useState(getCurrentLocale());
   const [isLoading, setIsLoading] = useState(false);
 
+  // 第32行附近：useEffect 依赖数组保持不变
   // 当路由变化时更新选中状态
   useEffect(() => {
     setSelectedLanguage(getCurrentLocale());
-  }, [pathname, getCurrentLocale]); // 添加 getCurrentLocale 到依赖数组
+  }, [pathname, getCurrentLocale]);
 
   const handleLanguageChange = async (keys: SharedSelection) => {
     const keySet = new Set<string>();

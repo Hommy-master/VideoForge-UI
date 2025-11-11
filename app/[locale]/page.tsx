@@ -2,11 +2,8 @@
 import { useState, useRef, useMemo, useEffect } from 'react';
 import {
   ChevronRight,
-  ChevronLeft,
   ArrowRight,
-  Star,
   PlayCircle,
-  Eye,
   Heart,
   Image as ImageIcon,
   FileText,
@@ -23,6 +20,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@nextui-org/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { linkClassName } from '@/lib/consts/className';
 import Footer from '@/components/layout/Footer';
 
@@ -235,7 +233,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   </div>
                   {/* 右侧视频 */}
                   <div className="w-full md:w-1/2 bg-white/40 relative rounded-xl h-[135px] overflow-hidden">
-                    <img src={item.videoUrl} alt={item.title} className="w-full h-full object-cover" />
+                    <Image
+                      src={item.videoUrl}
+                      alt={item.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="bg-white/80 backdrop-blur-sm p-3 rounded-full">
                         <PlayCircle className="h-8 w-8 text-gray-700" />
@@ -304,7 +308,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 onClick={scrollLeft}
                 className="left-slide-gradient absolute left-0 top-0 h-full w-20 z-10 flex items-center justify-start px-4"
               >
-                <img className="ml-[-20px] w-[20px]" src="/icons/arrow-left-big.png" />
+                <Image
+                  src="/icons/arrow-left-big.png"
+                  alt="Scroll left"
+                  width={20}
+                  height={20}
+                  className="ml-[-20px]"
+                />
               </div>
             )}
 
@@ -314,7 +324,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 onClick={scrollRight}
                 className="right-slide-gradient absolute right-0 top-0 h-full w-20 z-10 flex items-center justify-end px-4 "
               >
-                <img className="mr-[-20px] w-[20px]" src="/icons/arrow-right-big.png" />
+                <Image
+                  src="/icons/arrow-right-big.png"
+                  alt="Scroll right"
+                  width={20}
+                  height={20}
+                  className="mr-[-20px]"
+                />
               </div>
             )}
 
@@ -327,10 +343,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               {section4Data.map((item) => (
                 <a key={item.id} href={item.link} className="flex-shrink-0 w-64 relative group">
                   <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={item.image}
                       alt={`作品 ${item.id}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
 
                     {/* 会员标记 */}

@@ -35,12 +35,6 @@ jobs:
     - name: 检查编译结果
       run: ls -lhR ./.next
 
-    # 安装sshpass
-    - name: Install sshpass
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y sshpass
-
     # 压缩代码
     - name: 压缩代码
       run: |

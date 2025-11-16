@@ -17,29 +17,23 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # 先安装 pnpm
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4.1.0
-      with:
-        version: 10   # 明确指定 pnpm 大版本 (推荐)
-
-    # 再设置 Node.js 环境
+    # 设置 Node.js 环境
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 22
-        cache: 'pnpm'  # 自动缓存 pnpm 依赖
+        cache: 'npm'  # 自动缓存 npm 依赖
 
     # 安装依赖
     - name: Install dependencies
-      run: pnpm install
+      run: npm ci
 
     # 编译
     - name: Build Project
-      run: pnpm run build
+      run: npm run build
 
     - name: 检查编译结果
-      run: ls -lhR ./dist
+      run: ls -lhR ./.next
 
     # 安装sshpass
     - name: Install sshpass
@@ -50,10 +44,11 @@ jobs:
     # 压缩代码
     - name: 压缩代码
       run: |
+        # 创建 .next 目录的压缩包（Next.js默认输出目录）
         # 写入commit hash到文件中
-        echo "${{ github.sha }}" > ./dist/commit_hash.txt
+        echo "${{ github.sha }}" > ./.next/commit_hash.txt
         # 压缩代码
-        cd ./dist
+        cd ./.next
         tar -czvf ../dist.tar.gz ./*
         cd ..
 

@@ -1,7 +1,7 @@
 services:
-  VideoForge-UI:
-    image: gogoshine/VideoForge-UI:latest
-    #image: gogoshine/VideoForge-UI:sha-190a61f
+  videoforge-ui:
+    image: gogoshine/videoforge-ui:latest
+    #image: gogoshine/videoforge-ui:sha-190a61f
     ports:
       - "30000:30000"
     volumes:
@@ -12,5 +12,5 @@ services:
     cpus: '1.6'       # CPU使用率限制为150%，即容器最多可以使用1.5个完整的CPU核心
     oom_score_adj: -500  # 调整 OOM 杀手优先级
     restart: unless-stopped  # 除非手动停止，否则总是重启容器
-    container_name: VideoForge-UI
+    container_name: videoforge-ui
     #entrypoint: ["/bin/sh", "-c", "sleep 10000"]

@@ -1,4 +1,4 @@
-name: Build And Deploy WebUI
+name: Build Dev
 
 on:
   push:

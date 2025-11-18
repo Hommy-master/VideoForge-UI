@@ -1,3 +1,4 @@
+/* 现有样式保持不变 */
 .right-slide-gradient {
     background: linear-gradient(270deg, #ffffff 0%, #ffffff 38.7%, rgba(255, 255, 255, 0) 91.25%);
 }
@@ -12,4 +13,21 @@
 
 .orange-gradient {
     background: linear-gradient(277.18deg, #FF6A00 0.87%, #AA4C00 117.99%), #FF6A00;
+}
+
+/* 新增创意渐变 */
+.purple-blue-gradient {
+    background: linear-gradient(to right, #8b5cf6, #3b82f6);
+}
+
+.teal-blue-gradient {
+    background: linear-gradient(to right, #2dd4bf, #3b82f6);
+}
+
+.orange-pink-gradient {
+    background: linear-gradient(to right, #f97316, #ec4899);
+}
+
+.purple-teal-gradient {
+    background: linear-gradient(to right, #8b5cf6, #2dd4bf);
 }

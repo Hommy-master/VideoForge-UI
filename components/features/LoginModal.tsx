@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Modal, ModalContent, Card, CardBody, ModalHeader, Image } from '@nextui-org/react';
-import { X, RefreshCw, Sparkles, Gift, Clock } from 'lucide-react';
+import { X, RefreshCw, Sparkles, Gift, Clock, Star, CheckCircle2, Zap, BarChart3 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 const TIMER = 60; // 60秒倒计时
@@ -64,129 +64,97 @@ export default function LoginModal({
 
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="backdrop-blur-sm">
-      <ModalContent className="w-full sm:w-[400px] p-0 overflow-hidden bg-white dark:bg-gray-900 rounded-xl shadow-2xl border-0">
-        {/* 扎染风格头部背景 */}
-        <ModalHeader className="relative overflow-hidden bg-gradient-to-br from-purple-300 via-blue-300 to-cyan-200 p-6">
-          {/* 添加扎染效果的叠加层 */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple-400/20 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-500/30 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-300/40 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-indigo-400/20 via-transparent to-transparent"></div>
+      <ModalContent className="w-full max-w-[932px] p-0 overflow-hidden bg-white dark:bg-gray-900 rounded-xl shadow-2xl border-0">
+        <div className="flex flex-col md:flex-row w-full">
+          {/* 左侧宣传广告区域 - 占2/5宽度 */}
+          <div className="w-full md:w-2/5 bg-gradient-to-br from-gray-700 via-blue-600 to-blue-500 p-8 relative overflow-hidden">
+            {/* 背景装饰元素 */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-blue-300/20 rounded-full blur-2xl"></div>
 
-          {/* 创意装饰元素 - 调整颜色以匹配扎染风格 */}
-          <div className="absolute -top-8 -left-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-          <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-
-          {/* 中央装饰元素 */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-blue-300/20 to-cyan-300/20 rounded-full blur-2xl"></div>
-
-          {/* 几何装饰 */}
-          <div className="absolute top-2 left-1/4 w-4 h-4 bg-purple-300/30 rotate-45"></div>
-          <div className="absolute bottom-2 right-1/4 w-6 h-6 bg-cyan-200/30 rounded-full"></div>
-
-          {/* 标签区域 - 重新分布位置避免重叠，并添加渐隐效果 */}
-
-          {/* FREE标签 - 右上角 */}
-          <div
-            className={`absolute top-2 right-14 transform rotate-[5deg] z-10 transition-opacity duration-700 ease-out ${showTags ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transitionDelay: '0.1s' }}
-          >
-            <div className="bg-gradient-to-r from-red-500/90 to-orange-500/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-lg">
-              <div className="flex items-center text-white text-xs font-bold">
-                <span>FREE</span>
+            {/* 宣传内容 */}
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              {/* 顶部Logo和品牌名称 */}
+              <div className="flex items-center mb-8">
+                <Image src="/logo.png" alt="简创AI" className="w-8 h-8 mr-2" />
+                <span className="font-bold text-xl text-white">简创AI</span>
               </div>
-            </div>
-          </div>
 
-          {/* 新用户限时免费标签 - 左上角 */}
-          <div
-            className={`absolute top-2 left-32 transform -rotate-[2deg] z-10 transition-opacity duration-700 ease-out ${showTags ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transitionDelay: '0.2s' }}
-          >
-            <div className="border-2 border-dashed border-purple-500/50 bg-gradient-to-r from-purple-100/90 to-white/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md">
-              <div className="flex items-center text-purple-800 text-xs">
-                <Clock size={10} className="mr-1 animate-pulse" />
-                <span>新用户限时免费</span>
-              </div>
-            </div>
-          </div>
+              <div>
+                <div className="mb-6">
+                  <p className="text-white text-lg">让视频创作变得简单、高效、专业</p>
+                </div>
 
-          {/* 会员专享优惠标签 - 右侧上部 */}
-          <div
-            className={`absolute bottom-1 right-12 transform -translate-y-1/2 rotate-[3deg] z-20 transition-opacity duration-700 ease-out ${showTags ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transitionDelay: '0.3s' }}
-          >
-            <div className="bg-gradient-to-r from-blue-600/90 to-indigo-600/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md">
-              <div className="flex items-center text-white text-xs">
-                <Sparkles size={10} className="mr-1" />
-                <span>会员专享优惠</span>
-              </div>
-            </div>
-          </div>
-
-          {/* 登录礼包标签 - 左侧下部 */}
-          <div
-            className={`absolute bottom-6 left-4 transform -translate-y-1/2 -rotate-[4deg] z-10 transition-opacity duration-700 ease-out ${showTags ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transitionDelay: '0.4s' }}
-          >
-            <div className="bg-gradient-to-r from-green-600/90 to-teal-600/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md">
-              <div className="flex items-center text-white text-xs">
-                <Gift size={10} className="mr-1" />
-                <span>登录即送大礼包</span>
-              </div>
-            </div>
-          </div>
-
-          {/* 7天免费体验标签 - 右侧下部 */}
-          <div
-            className={`absolute bottom-2 right-48 transform rotate-[2deg] z-20 transition-opacity duration-700 ease-out ${showTags ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transitionDelay: '0.5s' }}
-          >
-            <div className="bg-gradient-to-r from-cyan-600/90 to-blue-500/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-md">
-              <div className="flex items-center text-white text-xs">
-                <Clock size={10} className="mr-1" />
-                <span>7天免费体验</span>
-              </div>
-            </div>
-          </div>
-
-          {/* 确保关闭按钮在顶层且不被遮挡 */}
-          <div className="relative z-30 flex justify-end w-full">
-            <button
-              className="rounded-full bg-black/30 hover:bg-black/40 p-2 transition-all duration-300"
-              onClick={() => onOpenChange(false)}
-              aria-label="关闭"
-            >
-              <X size={18} className="text-white" />
-            </button>
-          </div>
-        </ModalHeader>
-
-        {/* 移除原来的外部标签区域 */}
-
-        <div className="p-6 mb-6">
-          <div className="text-center mb-4">
-            <h2 className="text-2xl mb-1 font-bold text-gray-800 dark:text-white">微信扫码登录</h2>
-            <p className="text-center text-gray-500 dark:text-gray-400 text-sm">扫码关注公众号快捷登录</p>
-          </div>
-
-          {/* 二维码区域 */}
-          <Card className="border w-[160px] h-[160px] mx-auto border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden">
-            <CardBody className="relative size-full p-2 flex flex-col items-center justify-center overflow-hidden">
-              {/* 模拟二维码图片 */}
-              <div className="size-full flex items-center justify-center">
-                {/* <QrCode size={240} className="text-gray-800 dark:text-white" /> */}
-                <Image src="/QUserQR.jpg" alt="二维码" className="size-full" />
-                {/* 二维码过期遮罩层 */}
-                {isExpired && (
-                  <div className="absolute z-10 inset-0 bg-black/60 flex flex-col items-center justify-center text-white text-base">
-                    <RefreshCw size={48} className="mb-3 cursor-pointer" onClick={refreshQrCode} />
-                    刷新二维码
+                {/* 功能特点列表 */}
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center text-white">
+                    <Zap className="mr-3 text-yellow-300" size={20} />
+                    <span>AI智能生成，快速创作</span>
                   </div>
-                )}
+                  <div className="flex items-center text-white">
+                    <CheckCircle2 className="mr-3 text-green-300" size={20} />
+                    <span>丰富模板，轻松上手</span>
+                  </div>
+                  <div className="flex items-center text-white">
+                    <Star className="mr-3 text-yellow-300" size={20} />
+                    <span>专业级编辑功能</span>
+                  </div>
+                  <div className="flex items-center text-white">
+                    <BarChart3 className="mr-3 text-blue-300" size={20} />
+                    <span>数据分析，精准优化</span>
+                  </div>
+                </div>
+
+                {/* 促销标签 */}
+                <div className="flex flex-wrap gap-2">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-white text-xs">限时优惠</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-white text-xs">新用户专享</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-white text-xs">会员特权</span>
+                  </div>
+                </div>
               </div>
-            </CardBody>
-          </Card>
+            </div>
+          </div>
+
+          {/* 右侧微信扫码登录区域 - 占3/5宽度 */}
+          <div className="w-full md:w-3/5">
+            <div className="p-[40px] flex flex-col items-center justify-center min-h-[400px]">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl mb-1 font-bold text-gray-800 dark:text-white">微信扫码登录</h2>
+                <p className="text-center text-gray-400 dark:text-gray-300 text-sm">扫码关注公众号快捷登录</p>
+              </div>
+
+              {/* 二维码区域 */}
+              <Card className="border w-[200px] h-[200px] border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden mb-6">
+                <CardBody className="relative size-full p-2 flex flex-col items-center justify-center overflow-hidden">
+                  {/* 模拟二维码图片 */}
+                  <div className="size-full flex items-center justify-center">
+                    <Image src="/QUserQR.jpg" alt="二维码" className="size-full" />
+                    {/* 二维码过期遮罩层 */}
+                    {isExpired && (
+                      <div className="absolute z-10 inset-0 bg-black/60 flex flex-col items-center justify-center text-white text-base">
+                        <RefreshCw size={48} className="mb-3 cursor-pointer" onClick={refreshQrCode} />
+                        刷新二维码
+                      </div>
+                    )}
+                  </div>
+                </CardBody>
+              </Card>
+            </div>
+
+            {/* 登录提示 */}
+            <div className="flex gap-2 justify-center items-center text-sm bg-[#f5f6fa] dark:bg-gray-800 h-[60px] text-gray-500 dark:text-gray-300">
+              <span>登录即表示您同意并遵守</span>
+              <span className="text-blue-600 dark:text-blue-400 hover:underline">《用户协议》</span>
+              <span className="text-blue-600 dark:text-blue-400 hover:underline">《隐私政策》</span>
+            </div>
+          </div>
         </div>
       </ModalContent>
     </Modal>

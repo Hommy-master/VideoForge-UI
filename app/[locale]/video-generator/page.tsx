@@ -82,12 +82,17 @@ const VideoGeneratorPage: React.FC<{ params: { locale: string } }> = ({ params }
 
   // 当灵感库显示状态改变时，重新检查滚动状态
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
     if (showInspiration) {
       // 使用setTimeout确保DOM已更新
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         checkScrollability();
       }, 10);
     }
+    // 清理函数，清除定时器
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [showInspiration]);
 
   // 滚动控制函数

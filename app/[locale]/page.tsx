@@ -23,6 +23,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { linkClassName } from '@/lib/consts/className';
 import Footer from '@/components/layout/Footer';
+import DefaultLayout from './defaultLayout';
 
 // Mock数据 - 修改为三个不同色系的淡颜色渐变
 const section1Data = [
@@ -53,81 +54,84 @@ const section1Data = [
 const toolsData = [
   {
     id: 1,
-    title: 'AI绘画助手',
-    subtitle: '根据描述生成精美图像',
-    icon: <ImageIcon />,
+    title: '多平台视频无水印下载',
+    subtitle: '一键下载各大平台无水印视频',
+    icon: <Video />,
+    href: '/ai-tools/remove',
     tag: '热门',
   },
   {
     id: 2,
-    title: '文案生成器',
-    subtitle: '快速创作高质量文章和营销文案',
+    title: '视频智能文案提取',
+    subtitle: '智能提取视频中的文字内容和字幕',
     icon: <FileText />,
+    href: '/ai-tools/video-caption',
   },
   {
     id: 3,
-    title: '视频生成器',
-    subtitle: 'AI一键生成创意短视频',
-    icon: <Video />,
+    title: 'AI电商图片制作',
+    subtitle: 'AI快速生成高质量电商商品图片',
+    icon: <ImageIcon />,
+    href: '/ai-tools/image-create',
     tag: '新品',
   },
-  {
-    id: 4,
-    title: '代码助手',
-    subtitle: '智能编码和代码优化建议',
-    icon: <Code />,
-  },
-  {
-    id: 5,
-    title: '语音转文字',
-    subtitle: '高效准确的语音识别服务',
-    icon: <Mic />,
-  },
-  {
-    id: 6,
-    title: '音乐创作',
-    subtitle: 'AI辅助音乐作曲和编曲',
-    icon: <Music />,
-    tag: '会员',
-  },
-  {
-    id: 7,
-    title: '对话机器人',
-    subtitle: '智能客服和问答系统',
-    icon: <MessageSquare />,
-  },
-  {
-    id: 8,
-    title: '设计助手',
-    subtitle: 'UI/UX设计元素生成',
-    icon: <Palette />,
-    tag: '推荐',
-  },
-  {
-    id: 9,
-    title: '3D模型生成',
-    subtitle: '从2D到3D的快速转换',
-    icon: <Layers />,
-  },
-  {
-    id: 10,
-    title: '智能翻译',
-    subtitle: '多语言精准翻译服务',
-    icon: <Share2 />,
-  },
-  {
-    id: 11,
-    title: '内容优化',
-    subtitle: 'SEO和可读性提升',
-    icon: <Zap />,
-    tag: '热门',
-  },
-  {
-    id: 12,
-    title: '个性化设置',
-    subtitle: '定制您的AI创作偏好',
-    icon: <Settings />,
-  },
+  // {
+  //   id: 4,
+  //   title: '代码助手',
+  //   subtitle: '智能编码和代码优化建议',
+  //   icon: <Code />,
+  // },
+  // {
+  //   id: 5,
+  //   title: '语音转文字',
+  //   subtitle: '高效准确的语音识别服务',
+  //   icon: <Mic />,
+  // },
+  // {
+  //   id: 6,
+  //   title: '音乐创作',
+  //   subtitle: 'AI辅助音乐作曲和编曲',
+  //   icon: <Music />,
+  //   tag: '会员',
+  // },
+  // {
+  //   id: 7,
+  //   title: '对话机器人',
+  //   subtitle: '智能客服和问答系统',
+  //   icon: <MessageSquare />,
+  // },
+  // {
+  //   id: 8,
+  //   title: '设计助手',
+  //   subtitle: 'UI/UX设计元素生成',
+  //   icon: <Palette />,
+  //   tag: '推荐',
+  // },
+  // {
+  //   id: 9,
+  //   title: '3D模型生成',
+  //   subtitle: '从2D到3D的快速转换',
+  //   icon: <Layers />,
+  // },
+  // {
+  //   id: 10,
+  //   title: '智能翻译',
+  //   subtitle: '多语言精准翻译服务',
+  //   icon: <Share2 />,
+  // },
+  // {
+  //   id: 11,
+  //   title: '内容优化',
+  //   subtitle: 'SEO和可读性提升',
+  //   icon: <Zap />,
+  //   tag: '热门',
+  // },
+  // {
+  //   id: 12,
+  //   title: '个性化设置',
+  //   subtitle: '定制您的AI创作偏好',
+  //   icon: <Settings />,
+  // },
 ];
 
 const section4Data = [
@@ -210,178 +214,186 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   }, [containerRef]);
 
   return (
-    <div className="h-full flex flex-col relative">
-      <div className="flex-1 flex-grow  py-[24px] px-[64px] ">
-        {/* Section 1: 三个卡片 */}
-        <section className="pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {section1Data.map((item) => (
-              <div
-                key={item.id}
-                className={`bg-gradient-to-r ${item.bgColor} p-6 rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow`}
-              >
-                <div className="flex flex-col md:flex-row h-full gap-4">
-                  {/* 左侧内容 */}
-                  <div className="flex flex-col justify-between flex-1">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
-                      <p className="text-gray-600 mb-4">{item.subtitle}</p>
-                    </div>
-                    <Button className="bg-white text-gray-800 border border-gray-200 hover:bg-gray-50 self-start w-fit">
-                      了解更多 <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                  {/* 右侧视频 */}
-                  <div className="w-full md:w-1/2 bg-white/40 relative rounded-xl h-[135px] overflow-hidden">
-                    <Image
-                      src={item.videoUrl}
-                      alt={item.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-white/80 backdrop-blur-sm p-3 rounded-full">
-                        <PlayCircle className="h-8 w-8 text-gray-700" />
+    <DefaultLayout>
+      <div className="h-full flex flex-col relative">
+        <div className="flex-1 flex-grow  py-[24px] px-[64px] ">
+          {/* Section 1: 三个卡片 */}
+          <section className="pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {section1Data.map((item) => (
+                <div
+                  key={item.id}
+                  className={`bg-gradient-to-r ${item.bgColor} p-6 rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow`}
+                >
+                  <div className="flex flex-col md:flex-row h-full gap-4">
+                    {/* 左侧内容 */}
+                    <div className="flex flex-col justify-between flex-1">
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
+                        <p className="text-gray-600 mb-4">{item.subtitle}</p>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="pb-12">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 ">AI工具 · 助力创作</h2>
-            <Button className={linkClassName} onPress={() => setExpanded(!expanded)}>
-              {expanded ? '收起工具' : '展开全部'} <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-300 ${!expanded && 'max-h-[560px] overflow-hidden'}`}
-          >
-            {displayTools.map((tool) => (
-              <div
-                key={tool.id}
-                className="bg-gray-100 h-[100px] rounded-lg p-4 flex items-center gap-4 hover:bg-gray-200 transition-colors cursor-pointer"
-              >
-                {/* 图标 */}
-                <div className="bg-white rounded-full p-3 w-fit">
-                  <div className="text-blue-500">{tool.icon}</div>
-                </div>
-
-                {/* 内容 */}
-                <div className="flex-grow">
-                  <div className="flex items-center mb-1">
-                    <h3 className="font-medium text-gray-900">{tool.title}</h3>
-                    {tool.tag && (
-                      <span
-                        className={`ml-2 text-xs px-2 py-0.5 rounded-full ${tool.tag === '热门' ? 'bg-red-100 text-red-600' : tool.tag === '新品' ? 'bg-green-100 text-green-600' : tool.tag === '会员' ? 'bg-amber-100 text-amber-600' : 'bg-blue-100 text-blue-600'}`}
-                      >
-                        {tool.tag}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-gray-600 text-sm">{tool.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 4: 可滑动卡片 */}
-        <section>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">热门作品</h2>
-            <Link href="/video-generator" className={linkClassName} aria-label="查看全部作品">
-              全部作品 <ChevronRight className="ml-1 h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="relative">
-            {/* 左箭头 - 只在可以向左滚动时显示 */}
-            {canScrollLeft && (
-              <div
-                onClick={scrollLeft}
-                className="left-slide-gradient absolute left-0 top-0 h-full w-20 z-10 flex items-center justify-start px-4"
-              >
-                <Image
-                  src="/icons/arrow-left-big.png"
-                  alt="Scroll left"
-                  width={20}
-                  height={20}
-                  className="ml-[-20px]"
-                />
-              </div>
-            )}
-
-            {/* 右箭头 - 只在可以向右滚动时显示 */}
-            {canScrollRight && (
-              <div
-                onClick={scrollRight}
-                className="right-slide-gradient absolute right-0 top-0 h-full w-20 z-10 flex items-center justify-end px-4 "
-              >
-                <Image
-                  src="/icons/arrow-right-big.png"
-                  alt="Scroll right"
-                  width={20}
-                  height={20}
-                  className="mr-[-20px]"
-                />
-              </div>
-            )}
-
-            {/* 滚动容器 */}
-            <div
-              ref={containerRef}
-              className="flex space-x-4 overflow-x-auto scrollbar-hide py-4 px-2"
-              onScroll={(e) => setScrollPosition(e.currentTarget.scrollLeft)}
-            >
-              {section4Data.map((item) => (
-                <a key={item.id} href={item.link} className="flex-shrink-0 w-64 relative group">
-                  <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={`作品 ${item.id}`}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
-
-                    {/* 会员标记 */}
-                    {item.isMemberOnly && (
-                      <div className="absolute top-2 left-2 bg-amber-500 text-white text-xs px-2 py-1 rounded">
-                        会员专享
-                      </div>
-                    )}
-
-                    {/* 收藏按钮 (hover时显示) */}
-                    <button
-                      className="absolute top-2 right-2 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="收藏"
-                    >
-                      <Heart className="h-4 w-4 text-gray-700" />
-                    </button>
-
-                    {/* 创作视频按钮 (hover时显示) */}
-                    <div className="absolute bottom-2 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Button className="bg-black/80 text-white hover:bg-black text-sm" size="sm">
-                        <PlayCircle className="mr-1 h-4 w-4" />
-                        创作视频
+                      <Button className="bg-white text-gray-800 border border-gray-200 hover:bg-gray-50 self-start w-fit">
+                        了解更多 <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
+                    {/* 右侧视频 */}
+                    <div className="w-full md:w-1/2 bg-white/40 relative rounded-xl h-[135px] overflow-hidden">
+                      <Image
+                        src={item.videoUrl}
+                        alt={item.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="bg-white/80 backdrop-blur-sm p-3 rounded-full">
+                          <PlayCircle className="h-8 w-8 text-gray-700" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
 
-      <Footer />
-    </div>
+          <section className="pb-12">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">AI工具 · 助力创作</h2>
+              {/* <Button className={linkClassName} onPress={() => setExpanded(!expanded)}>
+              {expanded ? '收起工具' : '展开全部'} <ChevronRight className="ml-1 h-4 w-4" />
+            </Button> */}
+            </div>
+
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 transition-all duration-300 ${!expanded && 'max-h-[560px] overflow-hidden'}`}
+            >
+              {displayTools.map((tool) => (
+                <Link
+                  key={tool.id}
+                  href={tool.href || '#'}
+                  passHref
+                  className={tool.href ? 'block' : 'block cursor-not-allowed'}
+                >
+                  <div className="bg-gray-100 h-[100px] rounded-lg p-4 flex items-center gap-4 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-1 hover:shadow-md hover:scale-[1.01]">
+                    {/* 图标 */}
+                    <div className="bg-white rounded-full p-3 w-fit transition-all duration-300 ease-in-out hover:bg-blue-50">
+                      <div className="text-blue-500 transition-colors duration-300 ease-in-out hover:text-blue-600">
+                        {tool.icon}
+                      </div>
+                    </div>
+
+                    {/* 内容 */}
+                    <div className="flex-grow">
+                      <div className="flex items-center mb-1">
+                        <h3 className="font-medium text-gray-900">{tool.title}</h3>
+                        {tool.tag && (
+                          <span
+                            className={`ml-2 text-xs px-2 py-0.5 rounded-full ${tool.tag === '热门' ? 'bg-red-100 text-red-600' : tool.tag === '新品' ? 'bg-green-100 text-green-600' : tool.tag === '会员' ? 'bg-amber-100 text-amber-600' : 'bg-blue-100 text-blue-600'}`}
+                          >
+                            {tool.tag}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gray-600 text-sm">{tool.subtitle}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 4: 可滑动卡片 */}
+          <section>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">热门作品</h2>
+              {/* <Link href="/video-generator" className={linkClassName} aria-label="查看全部作品">
+              全部作品 <ChevronRight className="ml-1 h-4 w-4" />
+            </Link> */}
+            </div>
+
+            <div className="relative">
+              {/* 左箭头 - 只在可以向左滚动时显示 */}
+              {canScrollLeft && (
+                <div
+                  onClick={scrollLeft}
+                  className="left-slide-gradient absolute left-0 top-0 h-full w-20 z-10 flex items-center justify-start px-4"
+                >
+                  <Image
+                    src="/icons/arrow-left-big.png"
+                    alt="Scroll left"
+                    width={20}
+                    height={20}
+                    className="ml-[-20px]"
+                  />
+                </div>
+              )}
+
+              {/* 右箭头 - 只在可以向右滚动时显示 */}
+              {canScrollRight && (
+                <div
+                  onClick={scrollRight}
+                  className="right-slide-gradient absolute right-0 top-0 h-full w-20 z-10 flex items-center justify-end px-4 "
+                >
+                  <Image
+                    src="/icons/arrow-right-big.png"
+                    alt="Scroll right"
+                    width={20}
+                    height={20}
+                    className="mr-[-20px]"
+                  />
+                </div>
+              )}
+
+              {/* 滚动容器 */}
+              <div
+                ref={containerRef}
+                className="flex space-x-4 overflow-x-auto scrollbar-hide py-4 px-2"
+                onScroll={(e) => setScrollPosition(e.currentTarget.scrollLeft)}
+              >
+                {section4Data.map((item) => (
+                  <a key={item.id} href={item.link} className="flex-shrink-0 w-64 relative group">
+                    <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={`作品 ${item.id}`}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      />
+
+                      {/* 会员标记 */}
+                      {item.isMemberOnly && (
+                        <div className="absolute top-2 left-2 bg-amber-500 text-white text-xs px-2 py-1 rounded">
+                          会员专享
+                        </div>
+                      )}
+
+                      {/* 收藏按钮 (hover时显示) */}
+                      <button
+                        className="absolute top-2 right-2 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        aria-label="收藏"
+                      >
+                        <Heart className="h-4 w-4 text-gray-700" />
+                      </button>
+
+                      {/* 创作视频按钮 (hover时显示) */}
+                      <div className="absolute bottom-2 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Button className="bg-black/80 text-white hover:bg-black text-sm" size="sm">
+                          <PlayCircle className="mr-1 h-4 w-4" />
+                          创作视频
+                        </Button>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <Footer />
+      </div>
+    </DefaultLayout>
   );
 }

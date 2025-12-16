@@ -1,5 +1,5 @@
-import {nextui} from '@nextui-org/react';
-import type {Config} from 'tailwindcss';
+import { nextui } from '@nextui-org/react';
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -12,24 +12,24 @@ const config: Config = {
   // darkMode: ['class', '[data-theme="dark"]'], // 与 next-themes 属性保持一致
   darkMode: 'class',
   theme: {
-    // extend: {
-    //   colors: {
-    //     /* 关键：只写一行，所有主题共用变量名 */
-    //     primary: 'hsl(var(--color-primary) / <alpha-value>)',
-    //     'primary-foreground': 'hsl(var(--color-primary-foreground) / <alpha-value>)',
-    //     background: 'hsl(var(--color-background) / <alpha-value>)',
-    //     foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
-    //   },
-    //   fontSize: {
-    //     base: 'var(--font-size-base)',
-    //   },
-    //   spacing: {
-    //     unit: 'var(--spacing-unit)',
-    //   },
-    //   borderRadius: {
-    //     DEFAULT: 'var(--radius)',
-    //   },
-    // },
+    extend: {
+      animation: {
+        fadeInUp: 'fadeInUp 0.7s ease-out forwards',
+        blob: 'blob 7s infinite',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        blob: {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '25%': { transform: 'translate(20px, -20px) scale(1.1)' },
+          '50%': { transform: 'translate(0, 20px) scale(0.9)' },
+          '75%': { transform: 'translate(-20px, -20px) scale(1.1)' },
+        },
+      },
+    },
   },
   plugins: [nextui()], // ❷ 注册插件
 };

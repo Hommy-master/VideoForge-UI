@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
-    'postcss-import': {}, // 让 @import 可用
+    'tailwindcss/nesting': {}, // 这个就是启用嵌套语法的关键（内部调用 postcss-nested）
     tailwindcss: {},
     autoprefixer: {},
   },
-}
+};
